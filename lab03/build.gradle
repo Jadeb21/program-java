@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'pl.edu.agh.ii'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'  // <-- add this line
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+    modularity.inferModulePath = false
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
